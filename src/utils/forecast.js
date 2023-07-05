@@ -7,7 +7,8 @@ const forecast=(latitude,longitude,callback)=>{
         }else if(body.error){
             callback('unable to find loaction',undefined);
         }else {
-            callback(undefined,'It is currently '+ body.current.temperature + 'degrees out. But it feels like '+ body.current.feelslike);
+            callback(undefined,body.current.weather_descriptions[0] + ' It is currently '+ body.current.temperature + 'degrees out. It feels like '+ body.current.feelslike + '. The humidity is' + body.current.humidity + ' %' + 'The UV index today is ' + body.current.uv_index + ' The wind speed is '+ body.current.wind_speed + ' And the precip is ' +body.current.precip);
+
 
         }
     })
